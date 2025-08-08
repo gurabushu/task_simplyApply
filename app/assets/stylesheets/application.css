@@ -12,6 +12,16 @@
     margin: 10px auto;
 }
 
+.tasks-wrapper{
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.task-item p{
+    margin: 5px 0;
+    font-size: 16px;
+}
+
 h1{
     text-align: center;
 }
@@ -39,7 +49,6 @@ h2{
 
 .create-task{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -50,8 +59,50 @@ h2{
     margin: 20px auto;
 }
 
-.create-task p {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 20px;
+.btn-element-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin: 10px auto;
+}
+
+.create-task label {
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: right;
+    margin: 10px 0;
+}
+
+.create-task input[type="text"],
+.create-task input[type="date"],
+.create-task input[type="datetime-local"],
+.create-task input[type="description"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.create-task select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.create-task textarea{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    height: 100px;
 }

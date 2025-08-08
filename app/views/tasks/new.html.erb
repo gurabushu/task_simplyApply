@@ -2,7 +2,6 @@
 <h2>新規タスク作成</h2>
 
 <div class="create-task">
-  <p>新しいタスクを作成します。</p>
 <%= form_with model: @task_create, local: true do |f| %>
     <%= f.label :title,"タイトル" %>
     <%= f.text_field :title %>
@@ -13,6 +12,7 @@
     <%= f.label :status,"ステータス" %>
     <%= f.select :status, [['未完了', false], ['完了', true]] %>
     <br>
+    <%= f.submit "タスク追加" ,class: "btn-element" %>
 <% end %>
 </div>
 

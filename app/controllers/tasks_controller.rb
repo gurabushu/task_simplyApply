@@ -22,6 +22,11 @@ class TasksController < ApplicationController
         end
     end
 
+    def edit
+        @task = Task.find(params[:id])
+        @task_edit =Task.new
+    end
+
     def destroy
         @task = Task.find(params[:id])
         @task.destroy
