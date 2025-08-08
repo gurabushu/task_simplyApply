@@ -1,0 +1,19 @@
+
+<h2>新規タスク作成</h2>
+
+<div class="create-task">
+  <p>新しいタスクを作成します。</p>
+<%= form_with model: @task_create, local: true do |f| %>
+    <%= f.label :title,"タイトル" %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :description,"内容" %>
+    <%= f.text_area :description %>
+    <br>  
+    <%= f.label :status,"ステータス" %>
+    <%= f.select :status, [['未完了', false], ['完了', true]] %>
+    <br>
+<% end %>
+</div>
+
+<%= link_to "タスク一覧に戻る", tasks_path, class: "btn-element" %>
