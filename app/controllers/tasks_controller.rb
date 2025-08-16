@@ -1,7 +1,18 @@
 class TasksController < ApplicationController
 
     def index
-        @task = Task.all
+        @tasks = Task.all
+
+    end
+
+    def update
+        @task = Task.find(params[:id])
+        @task_params = params.require(:task).permit(:status)
+        if @task.update(@task_params)
+            redirect_to @task, notice: "タスク更新完了"
+        else
+            render :edit
+        end
     end
 
     def show
@@ -24,7 +35,6 @@ class TasksController < ApplicationController
 
     def edit
         @task = Task.find(params[:id])
-        @task_edit =Task.new
     end
 
     def destroy

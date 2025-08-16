@@ -1,0 +1,14 @@
+<h2>予定詳細</h2>
+
+<div class="show-wrapper">
+  <h3><%= @task.title %></h3>
+  <p><strong>内容：</strong> <%= @task.description %></p>
+  <p><strong>ステータス：</strong> <%= @task.status ? '完了' : '未完了' %></p>
+  <p><strong>作成日時：</strong> <%= @task.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+  <p><strong>更新日時：</strong> <%= @task.updated_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+  <div class-"btn-element-wrapper">
+    <%= link_to "編集", edit_task_path(@task), class: "btn-element" %>
+    <%= link_to "削除", @task, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-element" %>
+  </div>
+</div>
+<%= link_to "戻る", tasks_path, class: "btn-element" %>

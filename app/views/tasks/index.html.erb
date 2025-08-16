@@ -1,26 +1,25 @@
 <div class="tasks-wrapper">
-<h1>タスク一覧</h1>
+  <h1>タスク一覧</h1>
+  <%= link_to "新規タスク作成", new_task_path, class: "btn-element" %>
 
+  <% if @tasks.empty? %>
+    <p>タスクがありません。</p>
+  <% else %>
+    <p>タスクが <%= @tasks.count %> 件あります。</p>
 
-    <% if @task.empty? %>
+    <% @tasks.each do |task| %>
+      <div class="task-item">
+        <h2><%= task.title %></h2>
+        <p><strong>タイトル：</strong> <%= task.title %></p>
+        <p><strong>内容: </strong> <%= task.description %></p>
+        <p><strong>ステータス: </strong> <%= task.status ? '完了' : '未完了' %></p>
+        <p><strong>作成日時:</strong> <%= task.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
 
-        <p>タスクがありません。</p>
-    <% else %>
-        <p>タスクが<%= @task.count %>件あります。</p>
+        <div class="btn-wrapper">
+          <%= link_to "詳細", task_path(task), class: "btn-element" %>
+          <%= link_to "削除", task, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn-element-main" %>
+        </div>
+      </div>
     <% end %>
-
-    <% @task.each do |task| %>
-        <div class="task-item">
-            <h3><%= task.title %></h3>
-            <p><strong>内容:</strong> <%= task.description %></p>
-            <p><strong>ステータス:</strong> <%= task.status ? '完了' : '未完了' %></p>
-            <p><strong>作成日時:</strong> <%= task.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
-            <%= link_to '編集', task_path(task), class: 'btn-element' %>
-            <%= link_to '削除', task, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-element-main' %>
-        <% end %>
-    </div>
-</div
-
-<%= link_to "新規タスク作成", new_task_path, class: "btn-element" %>
-
-
+  <% end %>
+</div>
