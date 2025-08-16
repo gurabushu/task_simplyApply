@@ -1,3 +1,11 @@
+
+<% if user_signed_in?%>
+  <div class="text-left">
+    <p>ログイン中...</p>
+    <%= button_to "ログアウト", destroy_user_session_path,method: :delete, class: "btn-element" %>
+  </div>
+
+
 <div class="tasks-wrapper">
   <h1>タスク一覧</h1>
   <%= link_to "新規タスク作成", new_task_path, class: "btn-element" %>
@@ -23,3 +31,14 @@
     <% end %>
   <% end %>
 </div>
+<% else %>
+
+  <h3 class="text-center">ログインして、タスクを管理しましょう。</h3>
+  <div class="login-wrapper">
+  <%= link_to "ログイン", new_user_session_path, class: "btn-element" %>
+  <%= link_to "新規登録", new_user_registration_path, class: "btn-element" %>
+</div>
+
+<% end %>
+
+
