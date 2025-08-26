@@ -64,4 +64,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "devise-i18n", "~> 1.14"
+gem "devise-i18n", "~> 1.15"
